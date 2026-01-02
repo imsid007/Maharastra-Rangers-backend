@@ -4,7 +4,7 @@ export const getAllEvents = async (req, res) => {
 
     try {
         const events = await Event.find()
-            .select("title description heroImage subTitle shortDescription price tags durationDays")
+            .select("title description heroImage subTitle shortDescription price tags durationDays dates isActive")
 
         res.status(200).json({
             message: "Events fetched successfully",

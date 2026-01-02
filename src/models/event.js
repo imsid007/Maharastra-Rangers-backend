@@ -41,7 +41,7 @@ const eventSchema = new mongoose.Schema(
     price: Number,
     tags: [{ type: String }],
     durationDays: Number,
-    published: {
+    isActive: {
       type: Boolean,
       default: false,
     }
