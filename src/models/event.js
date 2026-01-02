@@ -8,46 +8,39 @@ const eventSchema = new mongoose.Schema(
     },
     heroImage: String,
     subTitle: String,
-    shortDescription: String,
     description: String,
-    includes: [{type: String}],
-    exclude: [{type: String}],
+    includes: [{ type: String }],
+    exclude: [{ type: String }],
+    category: { type: String, required: true },
     itinerary: [
       {
         day: Number,
         title: String,
-        details: String
+        details: [
+          {
+            type: String
+          }
+        ]
       }
+    ],
+    thingsToCarry: [
+      { type: String }
     ],
     faqs: [{
       question: String,
-      answer: String,
-      isCommon: {type: Boolean, default: false},
+      answer: String
     }],
-    imageGallery: [{type: String}],
-    pickupLocationIds: [{type: mongoose.Schema.Types.ObjectId, ref: "PickupLocation"}],
+    imageGallery: [{ type: String }],
+    pickupLocationIds: [{ type: mongoose.Schema.Types.ObjectId, ref: "PickupLocation" }],
     dates: [{
       date: Date,
-      totalSeats: {type: Number, default: 0},
-      seatsBooked: {type: Number, default: 0},
-      price: {type: Number, default: 0}
+      totalSeats: { type: Number, default: 0 },
+      seatsBooked: { type: Number, default: 0 },
+      price: { type: Number, default: 0 }
     }],
     price: Number,
-    tags: [{type: String}],
+    tags: [{ type: String }],
     durationDays: Number,
-    createdBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Admin",
-      required: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
-    updatedAt: {
-      type: Date,
-      default: Date.now,
-    },
     published: {
       type: Boolean,
       default: false,

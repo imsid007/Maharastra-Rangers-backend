@@ -29,10 +29,10 @@ app.get("/", (req, res) => {
 app.use("/api/events", eventRoutes);
 
 /* Master data route */
-app.use("/api/masterData/", masterDataRoutes);
+app.use("/api/master-data/", masterDataRoutes);
 
 /* Pickup location route */
-app.use("/api/pickupLocation", pickupLocationRoutes);
+app.use("/api/pickup-location", pickupLocationRoutes);
 
 const PORT = process.env.PORT || 5000;
 

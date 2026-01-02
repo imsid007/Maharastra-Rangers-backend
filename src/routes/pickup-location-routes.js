@@ -11,7 +11,7 @@ const route = express.Router();
 route.post('/add', addPickupLocation);
 route.put('/update/:id', updateLocation);
 route.delete("/delete/:id", deleteLocation);
-route.get("/get/:id", getLocation);     
-route.get("/getAll", getAllLocations);
+route.get("/get/:id", getLocation);
+route.get("/get-all", getAllLocations);
 
 export default route;

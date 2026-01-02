@@ -8,8 +8,8 @@ import { createMasterData } from "../controllers/masterData/create-master-data.j
 
 const router = express.Router();
 
-router.post("/create", createEvent);    
-router.get("/getAll", getAllEvents);
+router.post("/create", createEvent);
+router.get("/get-all", getAllEvents);
 router.get("/get/:id", getEvent);
 router.put("/update/:id", updateEvent);
 router.delete("/delete/:id", deleteEvent);
