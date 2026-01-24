@@ -21,7 +21,7 @@ app_port      = 3000
 health_check_path = "/health"
 
 # GitHub Configuration
-github_owner  = "your-github-username"
+github_owner  = "imsid007"
 github_repo   = "Maharastra-Rangers-backend"
 github_branch = "main"
 

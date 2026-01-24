@@ -77,6 +77,12 @@ resource "aws_codebuild_project" "main" {
     buildspec = "buildspec.yml"
   }
 
+  # Enable local caching for faster builds
+  cache {
+    type  = "LOCAL"
+    modes = ["LOCAL_SOURCE_CACHE", "LOCAL_CUSTOM_CACHE"]
+  }
+
   logs_config {
     cloudwatch_logs {
       group_name  = aws_cloudwatch_log_group.codebuild.name
@@ -84,11 +90,14 @@ resource "aws_codebuild_project" "main" {
     }
   }
 
-  vpc_config {
-    vpc_id             = var.vpc_id
-    subnets            = var.public_subnet_ids
-    security_group_ids = [var.ec2_security_group_id]
-  }
+  # VPC config removed - not needed for simple npm builds
+  # Removing this saves 2-5 minutes per build (ENI setup time)
+  # Uncomment if you need VPC access during build (e.g., private npm registry)
+  # vpc_config {
+  #   vpc_id             = var.vpc_id
+  #   subnets            = var.public_subnet_ids
+  #   security_group_ids = [var.ec2_security_group_id]
+  # }
 
   tags = {
     Name        = "${var.name_prefix}-build"

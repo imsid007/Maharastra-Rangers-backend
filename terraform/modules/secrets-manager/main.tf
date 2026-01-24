@@ -3,12 +3,12 @@
 # -----------------------------------------------------------------------------
 
 resource "aws_secretsmanager_secret" "app_secrets" {
-  name                    = "${var.name_prefix}-app-secrets"
+  name                    = "${var.name_prefix}-app"
   description             = "Application secrets and environment variables for ${var.name_prefix}"
   recovery_window_in_days = 7
 
   tags = {
-    Name        = "${var.name_prefix}-app-secrets"
+    Name        = "${var.name_prefix}-app"
     Environment = var.environment
   }
 }

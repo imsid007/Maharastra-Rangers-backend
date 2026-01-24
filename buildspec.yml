@@ -22,13 +22,11 @@ phases:
   pre_build:
     commands:
       - echo "Pre-build phase started on $(date)"
-      - echo "Environment: $ENVIRONMENT"
-      # Parse secrets and create .env file
+      - echo "Environment - $ENVIRONMENT"
       - |
+        # Parse secrets and create .env file
         echo "Creating .env file from Secrets Manager..."
-        # Get the secret value and parse JSON to create .env
         SECRET_JSON=$(aws secretsmanager get-secret-value --secret-id $SECRETS_ARN --query SecretString --output text)
-        # Convert JSON to .env format
         echo "$SECRET_JSON" | python3 -c "
         import json, sys
         secrets = json.load(sys.stdin)
