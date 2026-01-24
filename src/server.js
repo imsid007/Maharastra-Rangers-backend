@@ -22,7 +22,16 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
     res.send("Backend server is running successfully");
-})
+});
+
+/* Health check endpoint for ALB */
+app.get("/health", (req, res) => {
+    res.status(200).json({ 
+        status: "healthy",
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || "development"
+    });
+});
 
 
 /* Event Route */

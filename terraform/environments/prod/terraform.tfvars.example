@@ -1,0 +1,33 @@
+# -----------------------------------------------------------------------------
+# Production Environment Variables - EXAMPLE
+# Copy to terraform.tfvars and fill in your values
+# -----------------------------------------------------------------------------
+
+# General Configuration
+aws_region   = "ap-south-1"
+project_name = "maharastra-rangers"
+
+# VPC Configuration
+vpc_cidr             = "10.0.0.0/16"
+availability_zones   = ["ap-south-1a", "ap-south-1b"]
+public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnet_cidrs = ["10.0.10.0/24", "10.0.11.0/24"]
+
+# EC2 Configuration
+instance_type = "t3.small"
+app_port      = 3000
+
+# ALB Configuration
+health_check_path = "/health"
+
+# GitHub Configuration
+github_owner  = "your-github-username"
+github_repo   = "Maharastra-Rangers-backend"
+github_branch = "main"
+
+# Application Secrets (NEVER commit real values!)
+app_secrets = {
+  MONGODB_URI = "mongodb+srv://username:password@cluster.mongodb.net/prod_database"
+  JWT_SECRET  = "your-prod-jwt-secret-key"
+  NODE_ENV    = "production"
+}

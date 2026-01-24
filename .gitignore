@@ -38,3 +38,16 @@ build/
 .DS_Store
 Thumbs.db
 
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+**/terraform.tfvars
+*.auto.tfvars
+.terraform.lock.hcl
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
