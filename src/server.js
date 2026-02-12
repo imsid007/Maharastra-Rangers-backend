@@ -43,12 +43,6 @@ app.use("/api/master-data/", masterDataRoutes);
 /* Pickup location route */
 app.use("/api/pickup-location", pickupLocationRoutes);
 
-app.use("/test-deployment", (req, res) => {
-    res.status(200).json({
-        status: "success",
-        message: "Test deployment is successful"
-    });
-});
 
 const PORT = process.env.PORT || 5000;
 
